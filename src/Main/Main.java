@@ -13,18 +13,26 @@ public class Main {
         double b = Double.parseDouble(y);
         switch (operation) {
             case "+":
-                return result = a + b;
+                result = a + b;
+                System.out.println(x + " " + operation + " " + y + " = " + result);
+                return result;
             case "-":
-                return result = a - b;
+                result = a - b;
+                System.out.println(x + " " + operation + " " + y + " = " + result);
+                return result;
             case "*":
-                return result = a * b;
+                result = a * b;
+                System.out.println(x + " " + operation + " " + y + " = " + result);
+                return result;
             case "/":
             default:
                 if (b == 0) {
                     System.out.println("You cannot divide by zero");
                     break;
                 } else {
-                    return result = a / b;
+                    result = a / b;
+                    System.out.println(x + " " + operation + " " + y + " = " + result);
+                    return result;
                 }
         }
         return result;
@@ -56,7 +64,6 @@ public class Main {
 
             } else if (z.charAt(0) == '=') {
                 pemdas(x, y);
-                System.out.println(x + " " + operation + " " + y + " = " + result);
                 x = Double.toString(result);
                 operation = y = "";
 

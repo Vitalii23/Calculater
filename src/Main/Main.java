@@ -8,22 +8,22 @@ public class Main {
     private String x, y, z, operation;
     private double result;
 
-    private double operation(String x, String y){
+    private void operation(String x, String y){
         double a = Double.parseDouble(x);
         double b = Double.parseDouble(y);
         switch (operation) {
             case "+":
                 result = a + b;
                 System.out.println(x + " " + operation + " " + y + " = " + result);
-                return result;
+                return;
             case "-":
                 result = a - b;
                 System.out.println(x + " " + operation + " " + y + " = " + result);
-                return result;
+                return;
             case "*":
                 result = a * b;
                 System.out.println(x + " " + operation + " " + y + " = " + result);
-                return result;
+                return;
             case "/":
             default:
                 if (b == 0) {
@@ -32,22 +32,36 @@ public class Main {
                 } else {
                     result = a / b;
                     System.out.println(x + " " + operation + " " + y + " = " + result);
-                    return result;
                 }
         }
-        return result;
     }
 
     private String calculator() {
         System.out.print("Enter x >> ");
         x = line.nextLine();
+        if (x.matches("[0-9]+")){
+            System.out.println("Well done");
+        } else {
+            System.out.println("Error enter number. Let's try again");
+            return x = calculator();
+        }
+
         while (true) {
             System.out.print("Enter operation >> ");
             operation = line.nextLine();
+
             System.out.print("Enter y >> ");
             y = line.nextLine();
+            if (y.matches("[0-9]+")){
+                System.out.println("Well done");
+            } else {
+                System.out.println("Error enter number. Let's try again");
+                return y = calculator();
+            }
+
             System.out.print("Enter symbol ('C', '=') >> ");
             z = line.nextLine();
+
             if ((z.charAt(0) >= '0' && z.charAt(0) <= '9') || z.charAt(0) == '.') {
 
                 if (!operation.equals("")) {

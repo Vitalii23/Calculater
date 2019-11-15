@@ -8,7 +8,7 @@ public class Main {
     private String x, y, z, operation;
     private double result;
 
-    private double pemdas(String x, String y){
+    private double operation(String x, String y){
         double a = Double.parseDouble(x);
         double b = Double.parseDouble(y);
         switch (operation) {
@@ -63,7 +63,7 @@ public class Main {
                 return x = calculator();
 
             } else if (z.charAt(0) == '=') {
-                pemdas(x, y);
+                operation(x, y);
                 x = Double.toString(result);
                 operation = y = "";
 
@@ -73,7 +73,7 @@ public class Main {
                     operation = z;
 
                 } else {
-                    pemdas(x, y);
+                    operation(x, y);
                     x = Double.toString(result);
                     operation = z;
                     y = "";

@@ -110,29 +110,4 @@ public class RomanNumber {
         }
         return result;
     }
-
-    /*void result(String x, char symbol, String y, String result){
-        System.out.println(x + " " + symbol + " " + y + " = " + result);
-    }*/
-
-    /*public static void main(String[] args) {
-        RomanNumber rn = new RomanNumber();
-        Scanner line = new Scanner(System.in);
-        text = line.nextLine();
-        res = rn.calculator(text);
-        n = rn.decimalRoman(res);
-        System.out.println("= " + n);
-        System.out.print("Enter x >> ");
-        x = line.nextLine();
-        a = rn.romanDecimal(x.toCharArray());
-        System.out.print("Enter symbol ('+', '-', '*', '/') >> ");
-        symbol = line.nextLine().charAt(0);
-        System.out.print("Enter y >> ");
-        y = line.nextLine();
-        b = rn.romanDecimal(y.toCharArray());
-        res = rn.calculator(a, symbol, b);
-        n = rn.decimalRoman(res);
-        rn.result(x, symbol, y, n);
-    }*/
-
 }

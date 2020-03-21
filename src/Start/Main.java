@@ -4,7 +4,7 @@ public class Main {
 
     public static void main(String[] args) {
         if(args.length < 1) {
-            System.out.println("Welcome application calculator\r\n" +
+            System.out.println("Welcome application arab/roman calculator\r\n" +
                     "Enter: <-start>");
             return;
         }

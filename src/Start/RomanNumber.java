@@ -15,33 +15,23 @@ public class RomanNumber {
     }
 
     int romanDecimal(char[] roman){
-
         int number = 0;
         int sum = 10;
-
         for (char c : roman) {
             switch (c) {
                 case 'X':
                     number += 10;
-                    if(sum < 10) {
-                        number -= 2 * sum;
-                    }
+                    if(sum < 10) { number -= 2 * sum; }
                     sum = 10;
                     break;
-
                 case 'V':
                     number += 5;
-                    if(sum < 5) {
-                        number -= 2 * sum;
-                    }
+                    if(sum < 5) { number -= 2 * sum; }
                     sum = 5;
                     break;
-
                 case 'I':
                     number += 1;
-                    if(sum < 1) {
-                        number -= 2 * sum;
-                    }
+                    if(sum < 1) { number -= 2 * sum; }
                     sum = 1;
                     break;
             }

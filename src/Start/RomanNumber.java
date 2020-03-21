@@ -2,6 +2,7 @@ package Start;
 
 public class RomanNumber {
 
+    // Convert decimal to roman number
     public String decimalRoman(int number){
         StringBuilder roman = new StringBuilder();
         while (number > 0 ){
@@ -14,6 +15,7 @@ public class RomanNumber {
         return roman.toString();
     }
 
+    // Convert roman number to decimal
     int romanDecimal(char[] roman){
         int number = 0;
         int sum = 10;

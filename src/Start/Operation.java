@@ -97,6 +97,7 @@ public class Operation {
         return numbers[0].matches("\\w+") || numbers[1].matches("\\w+");
     }
 
+    // Calculator operation
     public int calc() {
             System.out.println("Enter number");
             text = line.nextLine();

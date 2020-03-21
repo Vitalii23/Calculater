@@ -120,9 +120,7 @@ public class Operation {
                         calcMult();
                         break;
                     default:
-                        if (text.equals("exit")) {
-                            System.exit(0);
-                        }
+                        if (text.equals("exit")) { System.exit(0); }
                         System.out.println("Error, try again");
             }
         } catch (NumberFormatException ex) {

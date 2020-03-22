@@ -34,6 +34,8 @@ public class Calculator {
             numbers = text.split("[/]");
         } else if (text.indexOf('*') > 0){
             numbers = text.split("[/]");
+        } else {
+            System.out.println("Error");
         }
         first = this.io.getFirst(numbers[0]);
         second = this.io.getSecond(numbers[1]);

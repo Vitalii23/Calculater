@@ -47,7 +47,7 @@ public class Roman implements IOperation {
     // First roman number
     @Override
     public int getFirst(String first) {
-        if (first.matches("(?i)(\\W|^)(X|V|I|IV|IX|II|)(\\W|$)")){
+        if (first.matches("(?i)(\\W|^)(I|II|III|IV|V|VI|VII|VIII|IX|X|)(\\W|$)")){
             a = Integer.parseInt(String.valueOf(romanDecimal(first.toCharArray())));
         } else {
             throw new NumberFormatException("These values are not valid: " + first);
@@ -58,7 +58,7 @@ public class Roman implements IOperation {
     // Second roman number
     @Override
     public int getSecond(String second) {
-        if (second.matches("(?i)(\\W|^)(X|V|I|IV|IX|II|)(\\W|$)")){
+        if (second.matches("(?i)(\\W|^)(I|II|III|IV|V|VI|VII|VIII|IX|X|)(\\W|$)")){
             b = Integer.parseInt(String.valueOf(romanDecimal(second.toCharArray())));
         } else {
             throw new NumberFormatException("These values are not valid: " + second);

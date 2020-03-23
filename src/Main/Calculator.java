@@ -6,7 +6,7 @@ import Parsers.Roman;
 
 import java.util.Scanner;
 
-class Calculator {
+public class Calculator {
     private Roman r = new Roman();
     private IOperation io;
     private int first, second;
@@ -14,7 +14,6 @@ class Calculator {
     private String[] numbers;
     private static String input;
     private static Scanner line = new Scanner(System.in);
-
 
     private void setIo(IOperation io) {
         this.io = io;
@@ -54,19 +53,21 @@ class Calculator {
     }
 
     // Main execute
-    public void execute(){
+    public String execute(){
         input = line.nextLine();
         switch (input.trim()){
             case "roman" : executeRoman();
             case "arab" : executeArab();
             case "exit" : System.exit(0);
+            default: System.out.println("Error choice, try again");
+            return execute();
         }
     }
 
     // Function to run roman numbers
     private int executeRoman(){
         setIo(new Roman());
-        System.out.println("Welcome! Write roman number");
+        System.out.println("Write roman number");
         execute();
         reverse(input);
         System.out.println("= " +  r.decimalRoman(calc(first, second, operand)));
@@ -76,7 +77,7 @@ class Calculator {
     // Function to run arab numbers
     private int executeArab(){
         setIo(new Arab());
-        System.out.println("Welcome! Write arab number");
+        System.out.println("Write arab number");
         execute();
         reverse(input);
         System.out.println("= " + calc(first, second, operand));

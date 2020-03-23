@@ -10,7 +10,7 @@ public class Start {
             return;
         }
         if (args[0].equals("-start")) {
-            System.out.println("Choice and write mode <roman>, <arab>. Exit program <exit>");
+            System.out.println("Welcome! Choice and write mode <roman>, <arab>. Exit program <exit>");
             calculator.execute();
         } else {
             throw new Error("Unknown parser");

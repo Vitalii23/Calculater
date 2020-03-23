@@ -1,53 +1,89 @@
 package Main;
 
-import RouteInterface.IOperation;
+import Interface.IOperation;
+import Parsers.Arab;
+import Parsers.Roman;
 
-public class Calculator {
+import java.util.Scanner;
+
+class Calculator {
+    private Roman r = new Roman();
     private IOperation io;
-    private int first, second, count = 0;
+    private int first, second;
     private char operand;
     private String[] numbers;
-    private boolean isCount;
+    private static String input;
+    private static Scanner line = new Scanner(System.in);
 
 
-    public void setIo(IOperation io) {
+    private void setIo(IOperation io) {
         this.io = io;
     }
 
+    // Operand ('+', '-', '/', '*')
     private char getOperand(String symbol) {
-        for (int i = 0; i <= symbol.length() - 1; i++) {
-            isCount = (symbol.charAt(i) == '+'
-                    || symbol.charAt(i) == '-'
-                    || symbol.charAt(i) == '/'
-                    || symbol.charAt(i) == '*');
-            if (isCount) { count = i; }
+        if (symbol.indexOf('+') > 0){
+            return '+';
+        } else if (symbol.indexOf('-') > 0){
+            return '-';
+        } else if (symbol.indexOf('/') > 0){
+            return '/';
+        } else if (symbol.indexOf('*') > 0){
+            return '*';
+        } else {
+            throw new Error("No such operand: " + symbol);
         }
-        return symbol.charAt(count);
     }
 
-    private void check(String text){
+    // Reverse Polish Intonation
+    private void reverse(String text){
+        operand = this.getOperand(text);
         if (text.indexOf('+') > 0){
-            numbers = text.split("[+]");
+            numbers = text.split("[" + operand + "]");
         } else if (text.indexOf('-') > 0){
-            numbers = text.split("[-]");
+            numbers = text.split("[" + operand + "]");
         } else if (text.indexOf('/') > 0){
-            numbers = text.split("[/]");
+            numbers = text.split("[" + operand + "]");
         } else if (text.indexOf('*') > 0){
-            numbers = text.split("[/]");
+            numbers = text.split("[" + operand + "]");
         } else {
-            System.out.println("Error");
+            throw new Error();
         }
         first = this.io.getFirst(numbers[0]);
         second = this.io.getSecond(numbers[1]);
     }
 
-    public int execute(String text){
-        operand = this.getOperand(text);
-        check(text);
-        return calc(first, second, operand);
+    // Main execute
+    public void execute(){
+        input = line.nextLine();
+        switch (input.trim()){
+            case "roman" : executeRoman();
+            case "arab" : executeArab();
+            case "exit" : System.exit(0);
+        }
     }
 
+    // Function to run roman numbers
+    private int executeRoman(){
+        setIo(new Roman());
+        System.out.println("Welcome! Write roman number");
+        execute();
+        reverse(input);
+        System.out.println("= " +  r.decimalRoman(calc(first, second, operand)));
+        return executeRoman();
+    }
 
+    // Function to run arab numbers
+    private int executeArab(){
+        setIo(new Arab());
+        System.out.println("Welcome! Write arab number");
+        execute();
+        reverse(input);
+        System.out.println("= " + calc(first, second, operand));
+        return executeArab();
+    }
+
+    // Operations for calculator
     private int calc(int first, int second, char operand) {
         switch (operand) {
             case '+':

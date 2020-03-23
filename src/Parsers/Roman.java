@@ -1,6 +1,6 @@
-package Transport;
+package Parsers;
 
-import RouteInterface.IOperation;
+import Interface.IOperation;
 
 public class Roman implements IOperation {
     private int a, b;
@@ -44,22 +44,24 @@ public class Roman implements IOperation {
         return number;
     }
 
+    // First roman number
     @Override
     public int getFirst(String first) {
-        if (first.matches("(?i)(\\W|^)(X|V|I|IV|IX|)(\\W|$)")){
+        if (first.matches("(?i)(\\W|^)(X|V|I|IV|IX|II|)(\\W|$)")){
             a = Integer.parseInt(String.valueOf(romanDecimal(first.toCharArray())));
         } else {
-            System.out.println("Error write first number, try again");
+            throw new NumberFormatException("These values are not valid: " + first);
         }
         return a;
     }
 
+    // Second roman number
     @Override
     public int getSecond(String second) {
-        if (second.matches("(?i)(\\W|^)(X|V|I|IV|IX|)(\\W|$)")){
+        if (second.matches("(?i)(\\W|^)(X|V|I|IV|IX|II|)(\\W|$)")){
             b = Integer.parseInt(String.valueOf(romanDecimal(second.toCharArray())));
         } else {
-            System.out.println("Error write second number, try again");
+            throw new NumberFormatException("These values are not valid: " + second);
         }
         return b;
     }

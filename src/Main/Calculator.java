@@ -53,14 +53,12 @@ public class Calculator {
     }
 
     // Main execute
-    public String execute(){
+    public void execute(){
         input = line.nextLine();
         switch (input.trim()){
             case "roman" : executeRoman();
             case "arab" : executeArab();
             case "exit" : System.exit(0);
-            default: System.out.println("Error choice, try again");
-            return execute();
         }
     }
 

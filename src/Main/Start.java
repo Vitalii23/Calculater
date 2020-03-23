@@ -15,6 +15,5 @@ public class Start {
         } else {
             throw new Error("Unknown parser");
         }
-
     }
 }
